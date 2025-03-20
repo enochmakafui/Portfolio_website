@@ -14,11 +14,11 @@ const Hero = () => {
         transition={{ duration: 1 }}
         className="text-center z-10 px-4"
       >
-        <div className="mb-8">
+        <div className="mb-8 ">
           <img
             src={enochImage} // Replace with your actual image URL
             alt="Enoch Hodo"
-            className="w-48 h-48 rounded-full mx-auto border-4 border-blue-500 shadow-xl"
+            className="w-48 h-48  rounded-full mx-auto border-4 border-blue-500 shadow-xl"
           />
         </div>
         <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
@@ -38,9 +38,7 @@ const Hero = () => {
         </h1>
         <p className="text-gray-300 text-lg md:text-xl mb-8 max-w-4xl mx-auto">
           Hey there! I'm Enoch, a passionate Frontend Developer dedicated to
-          crafting sleek, high-performance web experiences. With over 2 years of
-          experience, I specialize in building interactive, visually appealing
-          websites using React, Tailwind CSS, and Framer Motion.
+          crafting sleek, high-performance web experiences.
         </p>
         <motion.button
           whileHover={{ scale: 1.05 }}
