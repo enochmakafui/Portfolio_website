@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { ArrowUpRight, Github, Linkedin, Mail, Twitter } from "lucide-react";
 import Reveal from "./Reveal";
 
+// Web3Forms keys are public by design (they ship in the browser bundle)
+const WEB3FORMS_ACCESS_KEY = "3ea6ba9c-c22b-4260-ba17-62302ae7e653";
+
 const socials = [
   { href: "https://github.com/enochmakafui", label: "GitHub", icon: Github },
   { href: "https://www.linkedin.com/in/enoch-hodo-686739237/", label: "LinkedIn", icon: Linkedin },
@@ -19,12 +22,18 @@ const Contact = () => {
     e.preventDefault();
     setStatus("sending");
     try {
-      const res = await fetch("https://formspree.io/f/maneqgar", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { Accept: "application/json", "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `New portfolio message from ${formData.name}`,
+          from_name: "Portfolio website",
+          ...formData,
+        }),
       });
-      if (!res.ok) throw new Error(`Formspree responded ${res.status}`);
+      const result = await res.json();
+      if (!result.success) throw new Error(result.message);
       setStatus("sent");
       setFormData({ name: "", email: "", message: "" });
     } catch {
