@@ -21,17 +21,16 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
+    // FormData keeps this a "simple" CORS request; a JSON body triggers a
+    // preflight that Web3Forms rejects with 403.
+    const body = new FormData();
+    body.append("access_key", WEB3FORMS_ACCESS_KEY);
+    body.append("subject", `New portfolio message from ${formData.name}`);
+    body.append("from_name", "Portfolio website");
+    Object.entries(formData).forEach(([key, value]) => body.append(key, value));
+
     try {
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { Accept: "application/json", "Content-Type": "application/json" },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_ACCESS_KEY,
-          subject: `New portfolio message from ${formData.name}`,
-          from_name: "Portfolio website",
-          ...formData,
-        }),
-      });
+      const res = await fetch("https://api.web3forms.com/submit", { method: "POST", body });
       const result = await res.json();
       if (!result.success) throw new Error(result.message);
       setStatus("sent");
