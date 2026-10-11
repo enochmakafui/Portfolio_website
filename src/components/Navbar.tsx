@@ -1,35 +1,43 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import { Moon, Sun } from "lucide-react";
 
-const Navbar = () => {
+interface NavbarProps {
+  darkMode: boolean;
+  toggleDarkMode: () => void;
+}
+
+const links = [
+  { href: "#work", label: "Work" },
+  { href: "#experience", label: "Experience" },
+  { href: "#contact", label: "Contact" },
+];
+
+const Navbar = ({ darkMode, toggleDarkMode }: NavbarProps) => {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text"
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-zinc-200/70 bg-white/75 backdrop-blur-md dark:border-zinc-800/70 dark:bg-zinc-950/75">
+      <nav className="container-page flex h-16 items-center justify-between">
+        <a href="#" className="whitespace-nowrap text-sm font-semibold tracking-tight">
+          Enoch Hodo
+        </a>
+        <div className="flex items-center gap-1 sm:gap-2">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="rounded-full px-2 py-1.5 text-sm sm:px-3 text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+            >
+              {link.label}
+            </a>
+          ))}
+          <button
+            onClick={toggleDarkMode}
+            aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+            className="ml-1 rounded-full p-2 text-zinc-600 transition hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-900 dark:hover:text-white"
           >
-            Enoch
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="hidden md:flex space-x-8"
-          >
-            <a href="#" className="text-gray-700 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Home</a>
-            <a href="#about" className="text-gray-700 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">About</a>
-            <a href="#portfolio" className="text-gray-700 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Projects</a>
-            <a href="#skills" className="text-gray-700 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Skills</a>
-            <a href="#contact" className="text-gray-700 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Contact</a>
-          </motion.div>
+            {darkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          </button>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 };
 

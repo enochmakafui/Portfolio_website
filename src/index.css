@@ -4,22 +4,32 @@
 
 html {
   scroll-behavior: smooth;
-}
-
-.bg-grid-pattern {
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-  background-size: 20px 20px;
+  scroll-padding-top: 5rem;
 }
 
 @layer base {
   body {
-    @apply antialiased;
+    @apply bg-white text-zinc-900 antialiased dark:bg-zinc-950 dark:text-zinc-100;
+  }
+  ::selection {
+    @apply bg-zinc-900 text-white dark:bg-white dark:text-zinc-900;
   }
 }
 
 @layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-5xl px-5 sm:px-8;
+  }
+  .eyebrow {
+    @apply text-xs font-medium uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-400;
+  }
   .section-title {
-    @apply text-4xl font-bold mb-4 dark:text-white;
+    @apply mt-3 text-3xl font-semibold tracking-tight sm:text-4xl;
+  }
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-full bg-zinc-900 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 rounded-full border border-zinc-200 px-5 py-2.5 text-sm font-medium transition hover:border-zinc-400 dark:border-zinc-800 dark:hover:border-zinc-600;
   }
 }

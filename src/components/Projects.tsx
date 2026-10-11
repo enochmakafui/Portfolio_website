@@ -1,102 +1,98 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
+import { ArrowUpRight } from "lucide-react";
+import Reveal from "./Reveal";
 
 const projects = [
   {
-    title: 'E-commerce Platform',
-    description: 'A modern e-commerce platform built with React and Tailwind CSS',
-    image: 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=800',
-    github: 'https://github.com',
-    demo: 'https://demo.com',
-    tags: ['React', 'Tailwind CSS', 'Redux']
+    title: "Ornama Studios",
+    category: "Agency website",
+    description:
+      "Website for a Ghana-based product, digital and content marketing agency — service pages, case studies, insights, client testimonials and a project inquiry flow.",
+    image: "/projects/ornama.jpg",
+    url: "https://ornama-v2.vercel.app/",
+    domain: "ornama-v2.vercel.app",
+    tags: ["Next.js", "React", "Tailwind CSS", "Responsive"],
   },
   {
-    title: 'Task Management App',
-    description: 'A collaborative task management application with real-time updates',
-    image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=800',
-    github: 'https://github.com',
-    demo: 'https://demo.com',
-    tags: ['React', 'Node.js', 'Socket.io']
+    title: "ARXYN Development",
+    category: "Company website",
+    description:
+      "Website for an architecture, interior design and project management firm — a cinematic hero, services showcase, project gallery and contact touchpoints.",
+    image: "/projects/arxyn.jpg",
+    url: "https://arxyndevelopment.com/",
+    domain: "arxyndevelopment.com",
+    tags: ["React", "Tailwind CSS", "Animations", "Responsive"],
   },
-  {
-    title: 'Weather Dashboard',
-    description: 'A weather dashboard with interactive maps and forecasts',
-    image: 'https://images.unsplash.com/photo-1592210454359-9043f067919b?auto=format&fit=crop&q=80&w=800',
-    github: 'https://github.com',
-    demo: 'https://demo.com',
-    tags: ['React', 'OpenWeather API', 'Charts.js']
-  }
 ];
 
 const Projects = () => {
   return (
-    <section id="portfolio" className="py-20 bg-white dark:bg-gray-800">
-      <div className="max-w-6xl mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl font-bold mb-4 dark:text-white">Featured Projects</h2>
-          <div className="w-20 h-1 bg-blue-500 mx-auto"></div>
-        </motion.div>
+    <section id="work" className="border-t border-zinc-200 py-24 dark:border-zinc-900">
+      <div className="container-page">
+        <Reveal>
+          <p className="eyebrow">Selected work</p>
+          <h2 className="section-title">Recent client projects</h2>
+        </Reveal>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              whileHover={{ y: -10 }}
-              className="bg-gray-50 dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg"
-            >
-              <div className="relative overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-48 object-cover transform hover:scale-110 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 dark:text-white">{project.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm"
-                    >
-                      {tag}
+        <div className="mt-14 space-y-20">
+          {projects.map((project) => (
+            <Reveal key={project.title}>
+              <article>
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-50 shadow-sm transition hover:shadow-xl dark:border-zinc-800 dark:bg-zinc-900"
+                >
+                  <div className="flex items-center gap-3 border-b border-zinc-200 px-4 py-3 dark:border-zinc-800">
+                    <div className="flex gap-1.5">
+                      <span className="h-2.5 w-2.5 rounded-full bg-zinc-300 dark:bg-zinc-700" />
+                      <span className="h-2.5 w-2.5 rounded-full bg-zinc-300 dark:bg-zinc-700" />
+                      <span className="h-2.5 w-2.5 rounded-full bg-zinc-300 dark:bg-zinc-700" />
+                    </div>
+                    <span className="mx-auto truncate rounded-md bg-white px-3 py-0.5 text-xs text-zinc-500 dark:bg-zinc-950 dark:text-zinc-400">
+                      {project.domain}
                     </span>
-                  ))}
-                </div>
-                <div className="flex justify-between">
+                    <span className="w-[42px]" />
+                  </div>
+                  <div className="overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={`${project.title} homepage`}
+                      loading="lazy"
+                      className="aspect-[16/10] w-full object-cover object-top transition duration-700 ease-out group-hover:scale-[1.02]"
+                    />
+                  </div>
+                </a>
+
+                <div className="mt-6 grid gap-4 sm:grid-cols-[1fr_auto] sm:items-start">
+                  <div>
+                    <p className="text-sm text-zinc-500 dark:text-zinc-400">{project.category}</p>
+                    <h3 className="mt-1 text-2xl font-semibold tracking-tight">{project.title}</h3>
+                    <p className="mt-3 max-w-2xl leading-relaxed text-zinc-600 dark:text-zinc-400">
+                      {project.description}
+                    </p>
+                    <ul className="mt-4 flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <li
+                          key={tag}
+                          className="rounded-full border border-zinc-200 px-3 py-1 text-xs text-zinc-600 dark:border-zinc-800 dark:text-zinc-400"
+                        >
+                          {tag}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                   <a
-                    href={project.github}
+                    href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                    className="btn-secondary justify-self-start"
                   >
-                    <Github className="w-5 h-5 mr-2" />
-                    Code
-                  </a>
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
-                  >
-                    <ExternalLink className="w-5 h-5 mr-2" />
-                    Demo
+                    Visit site <ArrowUpRight className="h-4 w-4" />
                   </a>
                 </div>
-              </div>
-            </motion.div>
+              </article>
+            </Reveal>
           ))}
         </div>
       </div>

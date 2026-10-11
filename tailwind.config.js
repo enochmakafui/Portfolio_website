@@ -4,8 +4,8 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
-      animation: {
-        'bounce-slow': 'bounce 3s linear infinite',
+      fontFamily: {
+        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
     },
   },

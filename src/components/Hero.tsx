@@ -1,67 +1,52 @@
-import Typewriter from "typewriter-effect";
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 import enochImage from "/enoch_image.jpg";
 
 const Hero = () => {
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 to-black">
-      <div className="absolute inset-0 w-full h-full bg-grid-pattern opacity-10"></div>
-
+    <section className="container-page pb-20 pt-36 sm:pb-28 sm:pt-44">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="text-center z-10 px-4"
+        transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <div className="mb-8 ">
+        <div className="flex items-center gap-4">
           <img
-            src={enochImage} // Replace with your actual image URL
+            src={enochImage}
             alt="Enoch Hodo"
-            className="w-48 h-48  rounded-full mx-auto border-4 border-blue-500 shadow-xl"
+            className="h-14 w-14 rounded-full object-cover ring-1 ring-zinc-200 dark:ring-zinc-800"
           />
+          <div>
+            <p className="font-medium">Enoch Hodo</p>
+            <p className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+              </span>
+              Available for new projects
+            </p>
+          </div>
         </div>
-        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-          <Typewriter
-            options={{
-              strings: [
-                "Hi, I'm Enoch Hodo",
-                "Frontend Developer 🚀",
-                "Computer Science Student",
-                "Crafting Engaging Web Experiences",
-                "Passionate About UI/UX & Performance",
-              ],
-              autoStart: true,
-              loop: true,
-            }}
-          />
-        </h1>
-        <p className="text-gray-300 text-lg md:text-xl mb-8 max-w-4xl mx-auto">
-          Hey there! I'm Enoch, a passionate Frontend Developer dedicated to
-          crafting sleek, high-performance web experiences.
-        </p>
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full font-medium transition-colors"
-          onClick={() =>
-            document
-              .getElementById("portfolio")
-              ?.scrollIntoView({ behavior: "smooth" })
-          }
-        >
-          View My Work
-        </motion.button>
-      </motion.div>
 
-      <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <ChevronDown className="w-8 h-8 text-white opacity-50" />
+        <h1 className="mt-10 max-w-3xl text-4xl font-semibold leading-[1.1] tracking-tight sm:text-6xl">
+          Frontend developer building fast, polished websites for brands.
+        </h1>
+        <p className="mt-6 max-w-xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
+          I turn designs into responsive, high-performance sites with React and
+          Next.js — from agency marketing sites to company websites that win
+          clients.
+        </p>
+
+        <div className="mt-10 flex flex-wrap gap-3">
+          <a href="#work" className="btn-primary">
+            View my work <ArrowDown className="h-4 w-4" />
+          </a>
+          <a href="mailto:enochhodo1@gmail.com" className="btn-secondary">
+            Get in touch <ArrowUpRight className="h-4 w-4" />
+          </a>
+        </div>
       </motion.div>
-    </div>
+    </section>
   );
 };
 
