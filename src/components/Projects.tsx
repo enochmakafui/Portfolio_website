@@ -63,7 +63,7 @@ const clientSites = [
     tags: ["React", "Framer Motion"],
   },
   {
-    title: "SK Carpet",
+    title: "SK Carpet Center",
     category: "Business website",
     description:
       "Carpet, rug and artificial grass supplier and installer — showroom collections, spaces served, past work and WhatsApp enquiries.",
