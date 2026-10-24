@@ -9,7 +9,7 @@ const facts = [
   { value: 3.63, decimals: 2, suffix: "/4.0", label: "GPA, First-Class Honours", quiet: true },
   { value: 350, suffix: "+", label: "students taught as a TA" },
   { value: 2, suffix: "×", label: "Dean's Award for Excellence" },
-  { value: 4, label: "production sites and apps" },
+  { value: 5, label: "production sites and apps" },
 ];
 
 const word = {

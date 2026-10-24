@@ -62,6 +62,16 @@ const clientSites = [
     domain: "arxyndevelopment.com",
     tags: ["React", "Framer Motion"],
   },
+  {
+    title: "SK Carpet",
+    category: "Business website",
+    description:
+      "Carpet, rug and artificial grass supplier and installer — showroom collections, spaces served, past work and WhatsApp enquiries.",
+    image: "/projects/skcarpet.jpg",
+    url: "https://skcarpet.vercel.app/",
+    domain: "skcarpet.vercel.app",
+    tags: ["HTML", "CSS", "JavaScript"],
+  },
 ];
 
 const Phone = ({ src, alt, y, rotate }: { src: string; alt: string; y: MotionValue<number>; rotate: number }) => (
