@@ -1,9 +1,9 @@
 const Footer = () => {
   return (
-    <footer className="border-t border-zinc-200 py-10 dark:border-zinc-900">
-      <div className="container-page flex flex-col gap-2 text-sm text-zinc-500 sm:flex-row sm:items-center sm:justify-between dark:text-zinc-400">
-        <p>© {new Date().getFullYear()} Enoch Hodo</p>
-        <a href="#" className="transition hover:text-zinc-900 dark:hover:text-white">
+    <footer className="border-t border-line py-10">
+      <div className="container-page flex flex-col gap-2 label sm:flex-row sm:items-center sm:justify-between">
+        <p>© {new Date().getFullYear()} Enoch Hodo · Built with React, TypeScript and Tailwind</p>
+        <a href="#" className="transition hover:text-accent">
           Back to top ↑
         </a>
       </div>

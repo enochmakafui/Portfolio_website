@@ -12,7 +12,7 @@ const socials = [
 ];
 
 const inputClass =
-  "w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none transition placeholder:text-zinc-400 focus:border-zinc-900 dark:border-zinc-800 dark:bg-zinc-950 dark:focus:border-zinc-400";
+  "w-full rounded-lg border border-line bg-surface px-4 py-3 text-sm outline-none transition placeholder:text-muted/70 focus:border-accent";
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -45,18 +45,17 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="border-t border-zinc-200 py-24 dark:border-zinc-900">
+    <section id="contact" className="border-t border-line py-24">
       <div className="container-page grid gap-12 md:grid-cols-2">
         <Reveal>
-          <p className="eyebrow">Contact</p>
-          <h2 className="section-title">Have a project in mind?</h2>
-          <p className="mt-4 max-w-md leading-relaxed text-zinc-600 dark:text-zinc-400">
-            I'm open to freelance and full-time work. Tell me a bit about what
-            you're building and I'll get back to you within a day.
+          <h2 className="section-title">Let's talk</h2>
+          <p className="mt-4 max-w-md leading-relaxed text-muted">
+            Hiring for a frontend role, planning a website, or reviewing my
+            graduate application? Send me a message and I'll reply within a day.
           </p>
           <a
             href="mailto:enochhodo1@gmail.com"
-            className="mt-8 inline-flex items-center gap-2 text-lg font-medium underline decoration-zinc-300 underline-offset-4 transition hover:decoration-zinc-900 dark:decoration-zinc-700 dark:hover:decoration-white"
+            className="mt-8 inline-flex items-center gap-2 text-lg font-medium underline decoration-line decoration-2 underline-offset-4 transition hover:decoration-accent"
           >
             <Mail className="h-5 w-5" />
             enochhodo1@gmail.com
@@ -69,7 +68,7 @@ const Contact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="rounded-full border border-zinc-200 p-2.5 text-zinc-600 transition hover:border-zinc-400 hover:text-zinc-900 dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-zinc-600 dark:hover:text-white"
+                className="rounded-lg border border-line p-2.5 text-muted transition hover:border-ink hover:text-ink"
               >
                 <Icon className="h-4 w-4" />
               </a>
@@ -104,7 +103,7 @@ const Contact = () => {
             <textarea
               name="message"
               aria-label="Message"
-              placeholder="Tell me about your project"
+              placeholder="Your message"
               value={formData.message}
               onChange={handleChange}
               rows={5}
